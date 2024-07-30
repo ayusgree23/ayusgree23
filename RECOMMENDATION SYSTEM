@@ -1,0 +1,13 @@
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+user_ratings_df = pd.read_csv("../input/the-movies-dataset/ratings.csv")
+user_ratings_df.head()
+movie_metadata = pd.read_csv("../input/the-movies-dataset/movies_metadata.csv")
+movie_metadata = movie_names[['title', 'genres']]
+movie_metadata.head()
+movie_data = user_ratings_df.merge(movie_metadata, on='movieId')
+movie_data.head()
+user_item_matrix = ratings_data.pivot(index=['userId'], columns=['movieId'], values='rating').fillna(0)
+user_item_matrix
